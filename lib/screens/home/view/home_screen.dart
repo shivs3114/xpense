@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:get/get.dart';
+//import 'package:get/get.dart';
 import 'package:xpense/data_model.dart';
 import 'package:xpense/screens/home/view/main_screen.dart';
 import 'package:xpense/screens/home/view/stats.dart';
@@ -99,7 +100,7 @@ StatsScreen()
               ElevatedButton(onPressed: ()
               {if(amount!=null && description!=null){print('!!!!');
   
-                  Provider.of<Transactions1>(context,listen: false).addItem(Transactions(amount:amount!, name: description!, icon:Icons.local_grocery_store));
+                  Provider.of<Transactions1>(context,listen: false).addItem(Transactions(amount:amount!, name: description!, icon:Icons.local_grocery_store,date:DateFormat('dd/MM/yyyy').format( DateTime.now())));
                 
               c1.clear();c2.clear();
               Navigator.pop(context);}},
@@ -108,7 +109,7 @@ StatsScreen()
               Spacer(),
 
 
-              
+
               ElevatedButton(onPressed: (){Navigator.pop(context);}, child:Text('Cancel',style: TextStyle(color: Colors.white),),style: ElevatedButton.styleFrom(backgroundColor:Colors.red),)
             ],
           ),
